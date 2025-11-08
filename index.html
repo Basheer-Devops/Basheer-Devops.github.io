@@ -3,276 +3,199 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Basheer — DevOps Engineer (Resume)</title>
-  <meta name="description" content="Resume — Basheer | DevOps Engineer | 8 years experience (4+ years in DevOps)" />
+  <title>Shaik Basheer Ahmad — DevOps Engineer</title>
+  <meta name="description" content="Resume — Shaik Basheer Ahmad, DevOps Engineer. 8 years experience, 4+ years in DevOps."/>
   <style>
+    /* Minimal, efficient, print-friendly single-file resume */
     :root{
-      --accent:#0b5fff;
-      --muted:#6b7280;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --max-width:900px;
-      --radius:8px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#0f1724;
+      --bg:#f6f8fb; --card:#ffffff; --accent:#0b63c6; --muted:#52607a; --ink:#0b1a2b;
+      --pill:#eef5ff; --gap:18px; --radius:10px; --maxw:900px;
+      font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:2rem 1rem;
-      display:flex;
-      justify-content:center;
-      font-size:16px;
-    }
-    .resume{
-      width:100%;
-      max-width:var(--max-width);
-      background:linear-gradient(180deg,rgba(11,95,255,0.02),transparent);
-      padding:1.25rem;
-      border-radius:var(--radius);
-      box-shadow:0 6px 30px rgba(8,15,30,0.06);
-    }
-
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      border-bottom:1px solid rgba(15,23,36,0.06);
-      padding-bottom:0.75rem;
-      margin-bottom:0.75rem;
-    }
-    .name-block{
-      display:flex;
-      flex-direction:column;
-      gap:0.15rem;
-    }
-    .name{
-      font-size:1.5rem;
-      font-weight:700;
-      color:var(--accent);
-    }
-    .title{font-size:0.98rem;color:var(--muted);font-weight:600}
-    .contacts{
-      text-align:right;
-      font-size:0.95rem;
-      color:var(--muted);
-    }
-    .contacts a{color:inherit;text-decoration:none}
-
-    main{display:grid; grid-template-columns: 1fr 320px; gap:1rem;}
-    @media (max-width:980px){ main{grid-template-columns:1fr} }
-
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:var(font-sans);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:20px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 20px rgba(12,22,40,.06);padding:20px}
+    header{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .profile{flex:1}
+    .name{font-size:1.6rem;font-weight:700;margin:0}
+    .title{color:var(--accent);font-weight:600;margin:6px 0 0}
+    .meta{color:var(--muted);font-size:0.95rem;margin-top:8px}
+    .contacts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .chip{background:var(--pill);padding:8px 10px;border-radius:999px;font-size:0.92rem;color:var(--muted);border:1px solid rgba(11,99,198,.06)}
+    .layout{display:grid;grid-template-columns:280px 1fr;gap:var(--gap);margin-top:18px}
+    @media(max-width:840px){ .layout{grid-template-columns:1fr} }
     /* Left column */
-    .panel{
-      background:var(--card);
-      padding:1rem;
-      border-radius:8px;
-      box-shadow:0 6px 18px rgba(11,95,255,0.03);
-    }
-    .section{margin-bottom:0.8rem}
-    .section h3{
-      margin:0 0 0.5rem 0;
-      font-size:1.05rem;
-      color:#0f1724;
-      border-left:3px solid var(--accent);
-      padding-left:0.6rem;
-      font-weight:700;
-    }
-    .summary p{margin:0;color:var(--muted)}
-    ul{margin:0.4rem 0 0 1.05rem;color:var(--muted)}
-    li{margin:0.35rem 0}
-
-    .experience-item{margin-bottom:0.6rem}
-    .exp-header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
-    .role{font-weight:700;color:#0f1724}
-    .org{color:var(--muted);font-weight:600}
-    .period{color:var(--muted);font-size:0.92rem}
-    .exp-details{margin-top:0.35rem;color:var(--muted)}
-    .achievements{margin-top:0.5rem}
-    .tag{display:inline-block;background:rgba(11,95,255,0.08);color:var(--accent);padding:0.25rem 0.5rem;border-radius:6px;margin:0.2rem 0.25rem 0 0;font-weight:600;font-size:0.85rem}
-
-    /* Right column (sidebar) */
-    .sidebar .box{background:var(--card);padding:1rem;border-radius:8px;margin-bottom:0.8rem}
-    .skills-grid{display:flex;flex-wrap:wrap;gap:0.35rem}
-    .skill-pill{background:rgba(15,23,36,0.04);padding:0.35rem 0.6rem;border-radius:999px;font-size:0.9rem;color:#0f1724}
-    .keyfeatures p{margin:0; color:var(--muted); font-size:0.95rem}
-    .locations{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem}
-    .loc{background:rgba(15,23,36,0.04);padding:0.25rem 0.5rem;border-radius:6px;font-weight:600;color:var(--muted)}
-
-    footer{margin-top:0.6rem;text-align:center;color:var(--muted);font-size:0.9rem}
-
-    /* Print-friendly */
+    .left{display:flex;flex-direction:column;gap:14px}
+    h3{margin:0 0 8px;font-size:0.95rem;color:var(--accent);letter-spacing:.06em}
+    .section{background:linear-gradient(180deg,#fff,#fbfdff);padding:14px;border-radius:10px;border:1px solid rgba(11,99,198,.06)}
+    .skill-list, .small-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+    .skill-list li{background:#f1f6ff;padding:6px 8px;border-radius:6px;font-size:0.86rem;color:var(--muted)}
+    .small-list li{font-size:0.92rem;color:var(--muted);margin:6px 0}
+    /* Right column */
+    .right{display:flex;flex-direction:column;gap:14px}
+    .summary p{margin:0;color:var(--muted);line-height:1.5}
+    .job{padding:12px;border-radius:8px;border:1px solid rgba(9,18,36,.04);background:#fff}
+    .job .role{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+    .role h4{margin:0;font-size:1rem}
+    .role .meta{font-size:0.9rem}
+    .responsibilities{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .bullet{margin:6px 0}
+    .achievements{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+    .badge{background:#eef6ff;padding:10px;border-radius:8px;border:1px solid rgba(11,99,198,.06);font-size:0.92rem;color:var(--muted)}
+    footer{margin-top:12px;color:var(--muted);font-size:0.92rem;text-align:left}
+    .consent{margin-top:10px;font-weight:600;color:var(--muted)}
+    /* print tweaks */
     @media print{
-      body{background:white;padding:0}
-      .resume{box-shadow:none}
+      body, .wrap{background:#fff}
+      .chip{border:none;background:transparent}
+      .section{border:none;box-shadow:none}
     }
   </style>
 </head>
 <body>
-  <article class="resume" aria-label="Resume — Basheer">
+  <div class="wrap card" itemscope itemtype="https://schema.org/Person">
     <header>
-      <div class="name-block">
-        <div class="name">Basheer</div>
-        <div class="title">DevOps Engineer — 8 years experience (4+ years in DevOps)</div>
-      </div>
+      <div class="profile">
+        <div class="name" itemprop="name">Shaik Basheer Ahmad</div>
+        <div class="title">DevOps Engineer — 8 years (4+ years focused in DevOps)</div>
+        <div class="meta">
+          Preferred locations: Hyderabad · Vizag · Bengaluru · Pune
+        </div>
 
-      <div class="contacts">
-        <div>Mobile: <strong>+91 72079 46790</strong></div>
-        <div>Email: <a href="mailto:Basheerahmad0509@gmail.com">Basheerahmad0509@gmail.com</a></div>
-        <div style="margin-top:6px;color:var(--muted)">Preferred locations: <strong>Hyderabad · Vizag · Bangalore · Pune</strong></div>
+        <div style="margin-top:10px" class="contacts" aria-label="contact details">
+          <div class="chip" title="Phone">📞 +91 7207946790</div>
+          <div class="chip" title="Email">✉️ <a href="mailto:basheerahmad0509@gmail.com" style="color:inherit;text-decoration:none">basheerahmad0509@gmail.com</a></div>
+          <div class="chip" title="Date of birth">🎂 01 May 1995</div>
+          <div class="chip" title="Marital status">💍 Married</div>
+        </div>
+      </div>
+      <div style="min-width:120px;text-align:right">
+        <!-- optional placeholder for photo or logo -->
+        <div style="width:110px;height:110px;border-radius:12px;background:linear-gradient(180deg,#eef6ff,#ffffff);display:flex;align-items:center;justify-content:center;border:1px solid rgba(11,99,198,.06);">
+          <strong style="color:var(--accent)">Basheer</strong>
+        </div>
       </div>
     </header>
 
-    <main>
-      <!-- Left: Main content -->
-      <section>
-        <div class="panel section summary" aria-labelledby="summary-heading">
-          <h3 id="summary-heading">Professional Summary</h3>
-          <p>
-            Results-driven DevOps Engineer with a total of 8 years of IT experience, including 4+ years focused on DevOps practices
-            and cloud-native infrastructure. Proven track record of designing and operating CI/CD pipelines, automating infrastructure
-            provisioning, and improving reliability and deployment velocity for production services. Strong background in Windows administration,
-            virtualization, and backup technologies from earlier roles.
-          </p>
-        </div>
-
-        <div class="panel section" aria-labelledby="experience-heading">
-          <h3 id="experience-heading">Professional Experience</h3>
-
-          <div class="experience-item">
-            <div class="exp-header">
-              <div>
-                <div class="role">DevOps Engineer</div>
-                <div class="org">Microsoft (current)</div>
-              </div>
-              <div class="period">Present — Present</div>
-            </div>
-            <div class="exp-details">
-              <p>
-                Working as a DevOps Engineer at Microsoft, responsible for building and operating reliable CI/CD pipelines, automating infrastructure,
-                and enabling development teams to deliver features faster with higher confidence.
-              </p>
-              <div class="achievements">
-                <ul>
-                  <li>Designed and maintained CI/CD pipelines using Azure DevOps and GitHub Actions for multi-environment deployments.</li>
-                  <li>Implemented Infrastructure-as-Code (IaC) using Terraform (and ARM/Bicep patterns) to provision repeatable cloud environments.</li>
-                  <li>Containerized applications with Docker and deployed workloads to Kubernetes clusters; used Helm charts for templating and release management.</li>
-                  <li>Automated operational runbooks and day‑to‑day tasks using PowerShell and Bash scripts; integrated configuration automation where appropriate.</li>
-                  <li>Implemented monitoring and observability (metrics, logs, alerts) to improve MTTR and system reliability.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <hr style="border:none;border-top:1px dashed rgba(15,23,36,0.06);margin:0.6rem 0">
-
-          <div class="experience-item">
-            <div class="exp-header">
-              <div>
-                <div class="role">Windows Administrator</div>
-                <div class="org">IPsoft Global Solutions</div>
-              </div>
-              <div class="period">Earlier role —  (Windows / Virtualization)</div>
-            </div>
-            <div class="exp-details">
-              <p>
-                Administered Windows server environments, managed virtualization platforms, and ensured reliable backup and restore capabilities
-                across critical systems.
-              </p>
-              <div class="achievements">
-                <ul>
-                  <li>Managed Windows Server administration, patching, and performance tuning.</li>
-                  <li>Operated virtualization platforms including VMware and Hyper-V to provision, troubleshoot, and scale virtual infrastructure.</li>
-                  <li>Maintained enterprise backup technologies and recovery processes to meet RTO/RPO requirements.</li>
-                  <li>Collaborated with cross-functional teams to support migrations and infrastructure upgrades with minimal downtime.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel section" aria-labelledby="achievements-heading">
-          <h3 id="achievements-heading">Key Technical Achievements</h3>
-          <ul>
-            <li>Established repeatable CI/CD pipelines that shortened release cycles and improved deployment reliability.</li>
-            <li>Automated provisioning and environment drift prevention using Terraform and configuration automation.</li>
-            <li>Containerized legacy components and onboarded them to Kubernetes-based clusters for better scalability and portability.</li>
-            <li>Introduced monitoring and alerting improvements that reduced mean time to detect and recover incidents.</li>
-            <li>Reduced manual operational work by automating routine tasks and runbooks with scripts and configuration tools.</li>
+    <div class="layout">
+      <!-- left column -->
+      <aside class="left" aria-label="sidebar">
+        <section class="section" aria-labelledby="skills-heading">
+          <h3 id="skills-heading">Core technical skills</h3>
+          <ul class="skill-list" role="list">
+            <li>Azure</li><li>AWS</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li>
+            <li>Azure DevOps</li><li>Jenkins</li><li>GitLab CI</li><li>GitHub</li><li>Ansible</li>
+            <li>ELK Stack</li><li>Grafana</li><li>AppDynamics</li><li>PowerShell</li><li>Shell scripting</li>
+            <li>Python scripting</li><li>CI/CD pipelines</li><li>IaC (ARM/Bicep/Terraform)</li><li>VMware</li><li>Hyper-V</li>
+            <li>Backup & DR</li><li>Jira</li>
           </ul>
-        </div>
+        </section>
 
-        <div class="panel section" aria-labelledby="features-heading">
-          <h3 id="features-heading">DevOps — Key Features & Focus Areas</h3>
-          <ul>
-            <li><strong>Continuous Integration & Continuous Delivery (CI/CD):</strong> automated build, test and deployment workflows.</li>
-            <li><strong>Infrastructure as Code (IaC):</strong> automated, versioned infrastructure provisioning (Terraform, ARM/Bicep).</li>
-            <li><strong>Containerization & Orchestration:</strong> Docker, Kubernetes, Helm for scalable deployments.</li>
-            <li><strong>Automation & Configuration Management:</strong> PowerShell, Bash, Ansible to automate operations.</li>
-            <li><strong>Monitoring, Logging & Observability:</strong> metrics, tracing, centralized logs and alerts to improve reliability.</li>
-            <li><strong>Security & Compliance:</strong> integrated security scanning, secrets management, policy-as-code.</li>
-            <li><strong>Scalability & Resilience:</strong> design for high availability, auto-scaling and disaster recovery planning.</li>
-            <li><strong>Collaboration & Culture:</strong> cross-team collaboration, blameless postmortems and continuous improvement.</li>
+        <section class="section" aria-labelledby="tools-heading">
+          <h3 id="tools-heading">Tools & platforms</h3>
+          <ul class="small-list">
+            <li>Container runtimes: Docker, cri-o</li>
+            <li>Orchestration: Kubernetes (AKS/EKS/GKE)</li>
+            <li>CI servers: Azure Pipelines, Jenkins, GitLab CI, GitHub Actions</li>
+            <li>Monitoring: ELK, Prometheus, Grafana, AppDynamics</li>
+            <li>Version control: Git (GitHub/GitLab/Azure Repos)</li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- Right: Sidebar -->
-      <aside class="sidebar">
-        <div class="box">
-          <h3>Technical Skills</h3>
-          <div style="margin-top:0.6rem" class="skills-grid" role="list">
-            <span class="skill-pill">Azure / Azure DevOps</span>
-            <span class="skill-pill">Git & GitHub</span>
-            <span class="skill-pill">GitHub Actions</span>
-            <span class="skill-pill">Jenkins</span>
-            <span class="skill-pill">Terraform</span>
-            <span class="skill-pill">ARM / Bicep</span>
-            <span class="skill-pill">Docker</span>
-            <span class="skill-pill">Kubernetes</span>
-            <span class="skill-pill">Helm</span>
-            <span class="skill-pill">Ansible</span>
-            <span class="skill-pill">PowerShell</span>
-            <span class="skill-pill">Bash / Shell</span>
-            <span class="skill-pill">Monitoring (Prometheus / Grafana)</span>
-            <span class="skill-pill">Logging (ELK / Application Insights)</span>
-            <span class="skill-pill">Windows Server</span>
-            <span class="skill-pill">VMware / Hyper-V</span>
-            <span class="skill-pill">Backup Technologies</span>
-          </div>
-        </div>
+        <section class="section" aria-labelledby="certs-heading">
+          <h3 id="certs-heading">Education & certs</h3>
+          <ul class="small-list">
+            <li>BSc Computers — San Jose State University (2014)</li>
+            <li>Recommended: Azure/AWS/Kubernetes certification(s) — (add specifics)</li>
+          </ul>
+        </section>
 
-        <div class="box">
-          <h3>Certifications & Training</h3>
-          <p style="color:var(--muted);margin:0.35rem 0 0 0">(Add any cloud or DevOps-related certifications here — e.g., Azure Administrator, Azure DevOps Engineer, Kubernetes Administrator)</p>
-        </div>
-
-        <div class="box">
-          <h3>Preferred Locations</h3>
-          <div class="locations">
-            <div class="loc">Hyderabad</div>
-            <div class="loc">Vizag</div>
-            <div class="loc">Bangalore</div>
-            <div class="loc">Pune</div>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3>Contact</h3>
-          <p style="margin:0.25rem 0;color:var(--muted)">Mobile: <strong>+91 72079 46790</strong></p>
-          <p style="margin:0.25rem 0;color:var(--muted)">Email: <a href="mailto:Basheerahmad0509@gmail.com">Basheerahmad0509@gmail.com</a></p>
-        </div>
+        <section class="section" aria-labelledby="personal-heading">
+          <h3 id="personal-heading">Quick facts</h3>
+          <ul class="small-list">
+            <li>8 years IT experience — 4+ in DevOps</li>
+            <li>Worked across two organizations: IPsoft Global Solutions, Microsoft</li>
+            <li>Primary domain: platform reliability, automation & secure delivery</li>
+          </ul>
+        </section>
       </aside>
-    </main>
 
-    <footer>
-      <div>Resume generated for Basheer • Please review and customize details (dates, specific project names, metrics)</div>
-    </footer>
-  </article>
+      <!-- right column -->
+      <main class="right">
+        <section class="section summary" aria-labelledby="summary-heading">
+          <h3 id="summary-heading">Professional summary</h3>
+          <p>
+            Results-driven DevOps Engineer with 8 years in IT including 4+ years building and operating automated delivery platforms.
+            Strong background in Windows systems & virtualization, now focused on CI/CD pipelines, infrastructure as code, containerization,
+            monitoring, and security automation. Proven record partnering with development and platform teams to improve release velocity,
+            reliability, and operational observability.
+          </p>
+        </section>
+
+        <section class="section" aria-labelledby="experience-heading">
+          <h3 id="experience-heading">Professional experience</h3>
+
+          <article class="job" aria-labelledby="microsoft-role">
+            <div class="role" id="microsoft-role">
+              <h4>DevOps Engineer — Microsoft</h4>
+              <div class="meta">Present — (Current) · 4+ years in DevOps</div>
+            </div>
+            <ul class="responsibilities">
+              <li class="bullet">Built and scaled CI/CD pipelines (Azure DevOps, GitHub Actions, Jenkins) with automated quality and security gates.</li>
+              <li class="bullet">Implemented IaC (Terraform, ARM/Bicep) to provision and standardize cloud infrastructure and governance.</li>
+              <li class="bullet">Containerized applications and adopted Kubernetes orchestration (AKS); implemented deployment strategies (Blue/Green, Canary).</li>
+              <li class="bullet">Integrated monitoring and observability (ELK, Prometheus, Grafana, AppDynamics) to reduce MTTR and improve SLOs.</li>
+              <li class="bullet">Automated security controls, role-based access, and secrets management as part of the CI/CD and infrastructure lifecycle.</li>
+            </ul>
+          </article>
+
+          <article class="job" aria-labelledby="ipsoft-role" style="margin-top:12px">
+            <div class="role" id="ipsoft-role">
+              <h4>Windows Administrator — IPsoft Global Solutions</h4>
+              <div class="meta">Earlier role · Windows, VMware, Hyper-V, Backup technologies</div>
+            </div>
+            <ul class="responsibilities">
+              <li class="bullet">Managed Windows Server estate, enforced security baselines, and maintained enterprise backup & disaster recovery procedures.</li>
+              <li class="bullet">Administered virtualization platforms (VMware, Hyper-V) and automated routine tasks with PowerShell.</li>
+              <li class="bullet">Created operational runbooks and supported capacity & availability planning for business-critical services.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section" aria-labelledby="tech-achievements">
+          <h3 id="tech-achievements">Technical achievements — highlights</h3>
+          <div class="achievements">
+            <div class="badge">Led CI/CD rollout that reduced deployment time by automating pipelines and approvals.</div>
+            <div class="badge">Introduced IaC patterns (Terraform) for repeatable, auditable environment provisioning.</div>
+            <div class="badge">Improved incident detection by centralizing logs and metrics (ELK / Prometheus / Grafana).</div>
+            <div class="badge">Reduced manual ops via scripts & automation — PowerShell & Python automation playbooks.</div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="projects-heading">
+          <h3 id="projects-heading">Representative projects</h3>
+          <ul class="responsibilities">
+            <li class="bullet"><strong>Platform standardization:</strong> Migrated monolithic deployments into containerized microservices with AKS and Terraform-managed infra.</li>
+            <li class="bullet"><strong>Security automation:</strong> Implemented CI pipeline checks and container vulnerability scanning as part of release pipelines.</li>
+            <li class="bullet"><strong>Resilience & DR:</strong> Designed backup/restore validation workflows and automated recovery drills for critical systems.</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="other-heading">
+          <h3 id="other-heading">Other</h3>
+          <p style="margin:0;color:var(--muted)">
+            References available on request. Open to roles focused on platform engineering, SRE/DevOps, and cloud-native delivery.
+          </p>
+          <footer>
+            <div><strong>Contact</strong>: +91 7207946790 · basheerahmad0509@gmail.com</div>
+            <div style="margin-top:6px">Preferred locations: Hyderabad · Vizag · Bengaluru · Pune</div>
+            <div style="margin-top:6px">Organizations: IPsoft Global Solutions (Windows Administrator) · Microsoft (DevOps Engineer)</div>
+          </footer>
+          <div class="consent">I consent to the processing of my personal data for recruitment purposes and confirm that the information provided is accurate and complete. I agree.</div>
+        </section>
+      </main>
+    </div>
+  </div>
 </body>
 </html>
